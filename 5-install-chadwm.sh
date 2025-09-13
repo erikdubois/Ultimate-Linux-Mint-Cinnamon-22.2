@@ -22,17 +22,17 @@ sudo make install
 
 sudo touch /usr/share/xsessions/chadwm.desktop
 
-echo "Change your username here!!!!!!"
+read -rp "Enter your username for Chadwm Exec path: " input_user
+user_home=$(eval echo "~$input_user")
 
-echo '
+echo "
 [Desktop Entry]
 Encoding=UTF-8
 Name=Chadwm
 Comment=Dynamic window manager
-Exec=/home/erik/.config/arco-chadwm/scripts/./run.sh
+Exec=$user_home/.config/arco-chadwm/scripts/run.sh
 Icon=chadwm
-Type=Application' | sudo tee /usr/share/xsessions/chadwm.desktop
-
+Type=Application" | sudo tee /usr/share/xsessions/chadwm.desktop
 
 echo "################################################################"
 echo "#################    chadwm installed     ######################"
